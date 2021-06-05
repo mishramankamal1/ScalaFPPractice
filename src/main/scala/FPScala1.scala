@@ -13,7 +13,11 @@ object FPScala1 extends App{
     def fibbo(n: Int,acc1: BigInt,acc2:BigInt): BigInt = n match {
       case 0  => acc1
       case 1 => acc2
-      case _ => fibbo(n-1,acc2,acc1+acc2)
+      case _ => {
+        println("Acc2 "+acc2)
+        println("Acc1 "+acc1)
+        println("N-1 "+(n-1))
+        fibbo(n-1,acc2,acc1+acc2)}
     }
     fibbo(n,0,1)
   }
@@ -27,12 +31,17 @@ object FPScala1 extends App{
         println("Accum "+accum)
         println("Head "+x)
         println("Tail "+xs)
-        sumWithAccum(xs,x+accum)}
+        sumWithAccum(xs,x+accum)
+      }
     }
     sumWithAccum(list,0)
   }
 
-  println(sum(List.range(1, 10)))
+  // println(sum(List.range(1, 10)))
+
+  assert(sum(List.range(1,10)) == 45)
+  //assert(fib(3) == 5)
+  println(fib(10))
 
 
 }
